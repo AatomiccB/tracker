@@ -401,7 +401,7 @@ function buildProfileFromSetup() {
     throw new Error('Complete all required fields.');
   }
 
-  if (age < 18 || age > 100) {
+  if (age < 18 || age > 60) {
     throw new Error('Age must be between 18 and 100.');
   }
 
@@ -409,8 +409,8 @@ function buildProfileFromSetup() {
     throw new Error('Enter a valid height in feet and inches.');
   }
 
-  if (weeklyLoss < 0.10 || weeklyLoss > 2.00) {
-    throw new Error('Weekly loss must be between 0.10 kg and 2.00 kg.');
+  if (weeklyLoss < 0.10 || weeklyLoss > 1.50) {
+    throw new Error('Weekly loss must be between 0.10 kg and 1.50 kg.');
   }
 
   const targetWeight = round1(startWeight - weeklyLoss * PLAN_WEEKS);
