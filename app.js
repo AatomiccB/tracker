@@ -564,7 +564,14 @@ function renderChart() {
     .map(item => `${xForDate(item.date)},${y(item.target)}`)
     .join(' ');
 
-  const actual = [];
+  const actual = [
+    {
+        date: data.profile.startDate,
+        weight: data.profile.startWeight,
+        count: 1,
+        week: 0
+    }
+  ];
 
   for (let week = 1; week <= PLAN_WEEKS; week++) {
     if (!isWeekComplete(week)) continue;
@@ -573,10 +580,10 @@ function renderChart() {
     if (weekly.average === null) continue;
 
     actual.push({
-      date: TARGETS[week].date,
-      weight: weekly.average,
-      count: weekly.count,
-      week
+        date: TARGETS[week].date,
+        weight: weekly.average,
+        count: weekly.count,
+        week
     });
   }
 
